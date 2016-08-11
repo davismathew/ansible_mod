@@ -1,0 +1,100 @@
+{
+  "show version":{
+    "hostname":"yes",
+    "configregister":"no",
+    "imagefile":"no",
+    "serial":"no",
+    "uptime":"no",
+    "memory":"no",
+    "model":"no",
+    "reloadreason":"no",
+    "reloadtime":"no",
+    "version":"no"
+  },
+  "sh ip int br":{
+    "intf":"yes",
+    "ipaddr":"no",
+    "status":"no",
+    "proto":"no"
+  },
+  "show interfaces":{
+   "address":"no",
+   "bandwidth":"no",
+   "bia":"no",
+   "delay":"no",
+   "description":"yes",
+   "encapsulation":"no",
+   "hardware_type":"no",
+   "interface":"yes",
+   "ip_address":"no",
+   "link_status":"no",
+   "mtu":"no",
+   "protocol_status":"no",
+   "duplex":"no",
+   "in_pps":"no",
+   "in_rate":"no",
+   "inpt_drps":"no",
+   "inpt_err":"no",
+   "oupt_drps":"no",
+   "oupt_err":"no",
+   "out_pps":"no",
+   "out_rate":"no",
+   "speed":"no",
+   "queue_strategy":"no"
+  },
+  "show process cpu":{
+   "cpu_1_min":"yes",
+   "cpu_5_min":"no",
+   "cpu_5_sec":"yes"
+  },
+  "sh ip bgp sum":{
+   "bgp_neigh":"yes",
+   "neigh_as":"yes",
+   "state_pfxrcd":"no",
+   "uptime":"yes"
+  },
+   "sh cdp neigh":{
+     "neighbor":"yes",
+     "local_interface":"yes",
+     "neighbor_interface":"yes"
+  },
+   "sh standby br":{
+     "active":"yes",
+     "group":"yes",
+     "iface":"no",
+     "preempt":"no",
+     "priority":"yes",
+     "standby":"yes",
+     "state":"no",
+     "virtualip":"no"
+  },
+   "show ip route summary":{
+     "networks":"yes",
+     "source":"yes",
+     "subnets":"yes"
+  },
+   "show isis neighbor":{
+     "circuit":"yes",
+     "holdtime":"yes",
+     "interface":"yes",
+     "remoteip":"yes",
+     "status":"yes",
+     "system":"yes",
+     "type":"yes"
+  },
+   "show memory | in Processor | I/O":{
+     "free":"yes",
+     "source":"yes",
+     "total":"yes",
+     "used":"yes"
+  },
+  "show bgp all summary":{
+    "localas":"yes",
+    "received_v4":"yes",
+    "remoteas":"yes",
+    "remoteip":"yes",
+    "routerid":"yes",
+    "status":"yes",
+    "uptime":"yes"
+  }
+}

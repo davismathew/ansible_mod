@@ -1,0 +1,100 @@
+{
+  "show version":{
+    "hostname":"yes",
+    "configregister":"yes",
+    "imagefile":"yes",
+    "serial":"yes",
+    "uptime":"yes",
+    "model":"yes",
+    "memory":"yes",
+    "reloadreason":"yes",
+    "reloadtime":"yes",
+    "version":"yes"
+  },
+  "sh ip int br":{
+    "intf":"yes",
+    "ipaddr":"yes",
+    "status":"yes",
+    "proto":"yes"
+  },
+  "show interfaces":{
+   "address":"yes",
+   "bandwidth":"yes",
+   "bia":"yes",
+   "delay":"yes",
+   "description":"yes",
+   "encapsulation":"yes",
+   "hardware_type":"yes",
+   "interface":"yes",
+   "ip_address":"yes",
+   "link_status":"yes",
+   "mtu":"yes",
+   "protocol_status":"yes",
+   "duplex":"yes",
+   "in_pps":"yes",
+   "in_rate":"yes",
+   "inpt_drps":"yes",
+   "inpt_err":"yes",
+   "oupt_drps":"yes",
+   "oupt_err":"yes",
+   "out_pps":"yes",
+   "out_rate":"yes",
+   "speed":"yes",
+   "queue_strategy":"yes"
+  },
+  "show process cpu":{
+   "cpu_1_min":"yes",
+   "cpu_5_min":"yes",
+   "cpu_5_sec":"yes"
+  },
+  "sh ip bgp sum":{
+   "bgp_neigh":"yes",
+   "neigh_as":"yes",
+   "state_pfxrcd":"yes",
+   "uptime":"yes"
+  },
+   "sh cdp neigh":{
+     "neighbor":"yes",
+     "local_interface":"yes",
+     "neighbor_interface":"yes"
+  },
+   "sh standby br":{
+     "active":"yes",
+     "group":"yes",
+     "iface":"yes",
+     "preempt":"yes",
+     "priority":"yes",
+     "standby":"yes",
+     "state":"yes",
+     "virtualip":"yes"
+  },
+   "show ip route summary":{
+     "networks":"yes",
+     "source":"yes",
+     "subnets":"yes"
+  },
+   "show isis neighbor":{
+     "circuit":"yes",
+     "holdtime":"yes",
+     "interface":"yes",
+     "remoteip":"yes",
+     "status":"yes",
+     "system":"yes",
+     "type":"yes"
+  },
+   "show memory | in Processor | I/O":{
+     "free":"yes",
+     "source":"yes",
+     "total":"yes",
+     "used":"yes"
+  },
+  "show bgp all summary":{
+    "localas":"yes",
+    "received_v4":"yes",
+    "remoteas":"yes",
+    "remoteip":"yes",
+    "routerid":"yes",
+    "status":"yes",
+    "uptime":"yes"
+  }
+}
