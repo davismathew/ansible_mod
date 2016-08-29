@@ -66,7 +66,7 @@ class JSONFilterForDuplex(object):
 
 
 
-def compareduplexoutput(outputvariable,aft_variable,params_compared,command):
+def compareduplexoutput(outputvariable):
     jfilter = JSONFilterForDuplex()
 
     return jfilter.compare_duplexjson(outputvariable)
