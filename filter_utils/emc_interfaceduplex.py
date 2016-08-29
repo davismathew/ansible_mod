@@ -47,7 +47,7 @@ class JSONFilterForDuplex(object):
 
         for i,val in enumerate(variable):
             try:
-                if variable[i]['duplex'] == 'half':
+                if variable[i]['duplex'] == 'Half':
                     flag = False
                     list.append(construct_var(variable))
             except Exception, err:
@@ -58,7 +58,7 @@ class JSONFilterForDuplex(object):
 
 
         if(flag):
-            return "Success"
+            return "No Half duplex interfaces found"
         else:
             return retdict
 
@@ -99,13 +99,13 @@ def construct_var(variable):
     try:
         for ele in varlist:
             var[ele]=variable[ele]
-        innerlist = [var]
+        # innerlist = [var]
     except:
         raise errors.AnsibleFilterError('error in construct_var')
 #        return "error in construct_var"
-    var={}
+#     var={}
 
-    return innerlist
+    return var
 
 
 
