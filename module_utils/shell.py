@@ -35,7 +35,7 @@ try:
     HAS_CLING = True
 except ImportError:
     HAS_CLING = False
-    
+
 try:
     from __main__ import display
 except ImportError:
@@ -102,15 +102,19 @@ class Shell(object):
         self.errors = errors_re or CLI_ERRORS_RE
 
     def open(self, host, port=22, username=None, password=None,
-            timeout=10,isCling='No', platform='ios', key_filename=None, pkey=None, look_for_keys=None,
+            timeout=10, isCling='No', platform='ios', key_filename=None, pkey=None, look_for_keys=None,
             allow_agent=False):
+
         self.isCling=isCling
         if isCling.lower() == 'no':
             self.ssh = paramiko.SSHClient()
             self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-   
-    # unless explicitly set, disable look for keys if a password is
-    # present. this changes the default search order paramiko implements
+
+        self.ssh = paramiko.SSHClient()
+        self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+        # unless explicitly set, disable look for keys if a password is
+        # present. this changes the default search order paramiko implements
         if not look_for_keys:
             look_for_keys = password is None
 
@@ -121,23 +125,24 @@ class Shell(object):
                              key_filename=key_filename, allow_agent=allow_agent)
               
                     self.shell = self.ssh.invoke_shell()
-                    self.shell.settimeout(timeout)                  
-                else: 
-                    self.ssh=cling.Cling(hostname= host,username=username,password=password,personality=platform)
+                    self.shell.settimeout(120)                                  
+		else: 
+                    self.ssh=cling.Cling(hostname= host,username=username,password=password,personality=platform,pexpect_timeout=120)
                     self.ssh.login()
-         #   self.ssh.connect(host, port=port, username=username, password=password,
-          #              timeout=timeout, look_for_keys=look_for_keys, pkey=pkey,
-           #             key_filename=key_filename, allow_agent=allow_agent)
+ 
+#	     	self.ssh.connect(host, port=port, username=username, password=password,
+#                        timeout=timeout, look_for_keys=look_for_keys, pkey=pkey,
+#                        key_filename=key_filename, allow_agent=allow_agent)
 
-            #self.shell = self.ssh.invoke_shell()
-            #self.shell.settimeout(timeout)
+#            	self.shell = self.ssh.invoke_shell()
+#            	self.shell.settimeout(60)
         except socket.gaierror:
             raise ShellError("unable to resolve host name")
 
         if self.kickstart:
             self.shell.sendall("\n")
 
-        #self.receive()
+#        self.receive()
 
     def strip(self, data):
         return ANSI_RE.sub('', data)
@@ -161,8 +166,7 @@ class Shell(object):
                 if self.read(window):
                     resp = self.strip(recv.getvalue())
                     return self.sanitize(cmd, resp)
-            except ShellError:
-                exc = get_exception()
+            except ShellError, exc:
                 exc.command = cmd
                 raise
 
@@ -172,7 +176,8 @@ class Shell(object):
             from __main__ import display
         except ImportError:
             from ansible.utils.display import Display
-            display = Display()        
+            display = Display() 
+
         try:
             for command in to_list(commands):
                 cmd = '%s\r' % str(command)
@@ -183,6 +188,9 @@ class Shell(object):
                     res=self.ssh.run_command(cmd)
                 #responses.append(self.receive(command))
                     responses.append(res)
+
+#                self.shell.sendall(cmd)
+#                responses.append(self.receive(command))
         except socket.timeout:
             raise ShellError("timeout trying to send command", cmd)
         return responses

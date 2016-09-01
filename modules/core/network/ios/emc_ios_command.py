@@ -138,6 +138,8 @@ def main():
 
     retries = module.params['retries']
     interval = module.params['interval']
+    with open("/etc/netbot/factshare.txt", "w") as text_file:
+    	text_file.write('')
 
     try:
         queue = set()
@@ -215,10 +217,13 @@ def main():
 
 
   #  parseoutput(response,argument_spec)
+   
     file='/etc/ansiblefacts/fact'+str(int(time.time()))+'.json'
     with open(file,'w') as outjson:
         json.dump(tempdict,outjson)
-    result['stdout_fact']=file
+    with open("/etc/netbot/factshare.txt", "w") as text_file:
+    	text_file.write(file[18:])
+    result['stdout_fact']=file[18:]
     result['stdout_json'] = tempdict#stdout_json   #parseoutput(cmd_response[0],argument_spec)
     result['stdout_lines'] = list(to_lines(result['stdout']))
     return module.exit_json(**result)
