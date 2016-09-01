@@ -75,12 +75,12 @@
   },
    "show isis neighbor":{
      "circuit":"yes",
-     "holdtime":"yes",
-     "interface":"yes",
-     "remoteip":"yes",
-     "status":"yes",
-     "system":"yes",
-     "type":"yes"
+     "holdtime":"no",
+     "interface":"no",
+     "remoteip":"no",
+     "status":"no",
+     "system":"no",
+     "type":"no"
   },
    "show memory | in Processor | I/O":{
      "free":"yes",
