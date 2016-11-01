@@ -127,7 +127,7 @@ class Shell(object):
                     self.shell = self.ssh.invoke_shell()
                     self.shell.settimeout(120)                                  
 		else: 
-                    self.ssh=cling.Cling(hostname= host,username=username,password=password,personality=platform,pexpect_timeout=120)
+                    self.ssh=cling.Cling(hostname= host,username=username,password=password,personality=platform,pexpect_timeout=180,pexpect_read_loop_timeout=0.5)
                     self.ssh.login()
  
 #	     	self.ssh.connect(host, port=port, username=username, password=password,
