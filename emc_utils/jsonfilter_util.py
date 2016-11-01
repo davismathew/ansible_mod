@@ -1,7 +1,9 @@
 
 from ansible import errors
 from emc_utils.parseutils import construct_var
-
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 class JSONFilter(object):
     def compare_json(self,variableb, variablea, argslist, command):
@@ -20,7 +22,7 @@ class JSONFilter(object):
         for element in argslist:
             for i,val in enumerate(variablea):
                 try:
-                    if variablea[i][element] != variableb[i][element]:
+                   if str(variablea[i][element]).encode("utf-8").strip() != str(variableb[i][element]).encode("utf-8").strip():
                         flag = False
                         list.append(construct_var(variableb[i],variablea[i],command))
                 except Exception, err:
