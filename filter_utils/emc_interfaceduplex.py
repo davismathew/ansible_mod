@@ -49,11 +49,11 @@ class JSONFilterForDuplex(object):
             try:
                 if variable[i]['duplex'] == 'Half':
                     flag = False
-                    list.append(construct_var(variable))
+                    list.append(construct_var(variable[i]))
             except Exception, err:
                 return str(err)
             if(len(list)>0):
-                retdict["before,after"] = list
+                retdict["half duplex interfaces"] = list
                 list=[]
 
 
@@ -99,11 +99,11 @@ def construct_var(variable):
     try:
         for ele in varlist:
             var[ele]=variable[ele]
-        # innerlist = [var]
+        innerlist = [var]
     except:
         raise errors.AnsibleFilterError('error in construct_var')
 #        return "error in construct_var"
-#     var={}
+#    var={}
 
     return var
 
