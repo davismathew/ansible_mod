@@ -96,5 +96,11 @@
     "routerid":"yes",
     "status":"yes",
     "uptime":"yes"
+  },
+  "show ip route vrf summary":{
+    "networks":"yes",
+    "source":"yes",
+    "subnets":"yes",
+    "vrfname":"yes"
   }
 }
