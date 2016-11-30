@@ -102,5 +102,13 @@
     "source":"yes",
     "subnets":"yes",
     "vrfname":"yes"
+  },
+  "show ip ospf neighbor":{
+    "address":"yes",
+    "dead_time":"yes",
+    "interface":"yes",
+    "neighbor_id":"yes",
+    "priority":"yes",
+    "state":"yes"
   }
 }
